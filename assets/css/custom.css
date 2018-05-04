@@ -1,0 +1,10 @@
+.fixed-top-header
+{
+height: 30px;
+padding: 0px;
+border: 0px;
+margin: 0px;
+width: 100%;
+position: fixed;
+background-color: gray;
+}
