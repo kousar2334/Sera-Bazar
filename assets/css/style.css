@@ -285,7 +285,7 @@ ul.cd-dropdown-content li {
 }
 /*-- //menu --*/
 /*-- welcome --*/
-.welcome,.deals,.card-page,.help,.values,.privacy,.sitemap,.products,.related-products,.login-page,.contact,.about,.faq-w3agile,.wthree-offers,.w3l-services{
+.welcome,.deals,.card-page,.help,.values,.privacy,.sitemap,.products,.related-products,.-page,.contact,.about,.faq-w3agile,.wthree-offers,.w3l-services{
 	padding:5em 0;
 } 
 h3.w3ls-title {
@@ -1471,6 +1471,17 @@ input#amount {
 	text-align:center;
 }  
 .login-body {
+    padding: 3em;
+    background-color: #fff;
+    -webkit-box-shadow:0px 0px 4px 1px rgb(189, 189, 189);
+    -moz-box-shadow:0px 0px 4px 1px rgb(189, 189, 189);
+    -o-box-shadow:0px 0px 4px 1px rgb(189, 189, 189);
+    -ms-box-shadow:0px 0px 4px 1px rgb(189, 189, 189);
+    box-shadow:0px 0px 4px 1px rgb(189, 189, 189);
+    width: 40%;
+    margin: 0 auto;
+}
+.user-info-body {
     padding: 3em;
     background-color: #fff;
     -webkit-box-shadow:0px 0px 4px 1px rgb(189, 189, 189);

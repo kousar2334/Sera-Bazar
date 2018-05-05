@@ -48,3 +48,7 @@ $route['add-product-cart']='User_controller/add_product_cart';
 $route['cart-view']='User_controller/view_cart';
 //delete item from cart
 $route['delete-item-cart']='User_controller/delete_item_cart';
+//checkout link
+$route['check-out']='User_controller/checkout';
+//place order
+$route['place-order']='User_controller/place_order';

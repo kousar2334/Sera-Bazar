@@ -108,11 +108,8 @@ class User_controller extends CI_Controller {
        
 );
 
-if($this->cart->insert($data)){
-	echo "inserted";
-}else{
-	echo "try again";
-}
+$this->cart->insert($data);
+	
 		
 
 	}
@@ -140,5 +137,21 @@ if($this->cart->insert($data)){
 $this->cart->update($data);
 	
 	
+}
+//check out
+public function checkout()
+{
+	$this->load->library('cart');
+		$data=array();
+		$data['cart_data']=$this->cart->contents();
+		$data['all_category_info']=$this->admin_model->view_category();
+		$data['user_home_content']=$this->load->view('checkout',$data,true);
+		$this->load->view('user_dashboard',$data);
+}
+//place order
+public function place_order()
+{
+	echo "<pre>";
+	print_r($_POST);
 }
 }

@@ -1,5 +1,8 @@
 <div class="login-page">
         <div class="container"> 
+                <div class="col-4">
+                        <h4 class="pull-left"><i class="fa fa-cart-plus" aria-hidden="true"></i> Cart list</h4> 
+                </div>
 
                 <table class="table">
 
@@ -27,16 +30,25 @@
 
                                 <?php $i++; ?>
 
-                        <?php endforeach; ?>
 
+                        <?php endforeach; ?>
                         <tr>
-                                <td colspan="2"> </td>
+                                <td colspan="3"> </td>
                                 <td class="right"><strong>Total</strong></td>
-                                <td class="right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                                <td class="pull-right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
                         </tr>
 
                 </table>
-        </div>
+                
+                <div class="col-3 pull-right">
+                 <div class="span2">
+                         <a href="<?php echo base_url();?>check-out" class="btn btn-primary btn-block" > Proceed to Checkout  </a>
+                 </div>
+                 
+
+         </div><br><br>
+
+ </div>
 </div>
 <script type="text/javascript">
 
@@ -51,7 +63,7 @@
                         data:{'rowid':rowid},
 
                         success:function(data){
-                               
+
                         },
 
                 });
