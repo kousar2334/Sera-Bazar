@@ -74,7 +74,11 @@ class User_model extends CI_Model {
 		return $all_electronic_product;
 	}
 
-
+    //store the order information
+    public function store_order($data)
+    {
+     $this->db->insert('tbl_order',$data);
+    }
 
 }
 ?>

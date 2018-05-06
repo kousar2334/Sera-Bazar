@@ -170,4 +170,37 @@ class Admin_model extends CI_Model {
     return $all_inventory_info;
 
   }
+  //view order list
+  public function view_order_list()
+  {
+    $status=0;
+    $this->db->select('*');
+    $this->db->from('tbl_order');
+    $this->db->where('delivery_status',$status);
+     $this->db->order_by('user_name', 'desc');
+    $qurey=$this->db->get();
+    $all_order_info=$qurey->result();
+    return $all_order_info;
+  }
+  //return the order inforation to the admin panel
+  public function order_view($order_id)
+  {
+    
+    $this->db->select('*');
+    $this->db->from('tbl_order');
+    $this->db->where('order_id',$order_id);
+    $qurey=$this->db->get();
+    $order_info=$qurey->row();
+    return $order_info;
+  }
+  //update the order delivery status
+   public function update_order_status($order_id)
+  {
+    $value=1;
+    $this->db->set('delivery_status', $value); 
+    $this->db->where('order_id',$order_id); 
+    $this->db->update('tbl_order');
+
+  }
+
 }?>

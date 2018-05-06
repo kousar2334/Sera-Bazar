@@ -229,108 +229,53 @@ if($name){
 											</li>
 										</ul>
 									</li>
+                                     
+								<li class="dropdown head-dpdn">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge">
+
+										<?php 
+										$number=count($all_order_info);
+
+										echo $number;
+										?>
+									</span></a>
+									<ul class="dropdown-menu">
+										<li>
+											<div class="notification_header">
+												<h3>You have <?php 
+												$number=count($all_order_info);
+
+												echo $number;
+												?> new Order</h3>
+											</div>
+										</li>
+										<li id="sender_name"><a href="#">
+											<div class="user_img"><img src="#" alt=""></div>
+											<?php 
+											foreach ($all_order_info as $order_info) {
+												?><div class="notification_desc" >
+													<a href="<?php echo base_url();?>view-order/<?php echo $order_info->order_id;?>"><?php
+														echo $order_info->user_name;?></a>										
+													<p><span><?php 
+													$sending_time=$order_info->date;
+													$current_time=date('Y-m-d H:i:s');
+													echo $current_time-$sending_time;
 
 
+													?> Ago</span></p>
+												</div>
+												<?php }?>
+												<div class="clearfix"></div>	
+											</a></li>
 
-
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">4</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>You have 3 new notification</h3>
-												</div>
-											</li>
-											<li><a href="#">
-												<div class="user_img"><img src="images/4.jpg" alt=""></div>
-												<div class="notification_desc">
-													<p>Lorem ipsum dolor amet</p>
-													<p><span>1 hour ago</span></p>
-												</div>
-												<div class="clearfix"></div>	
-											</a></li>
-											<li class="odd"><a href="#">
-												<div class="user_img"><img src="images/1.jpg" alt=""></div>
-												<div class="notification_desc">
-													<p>Lorem ipsum dolor amet </p>
-													<p><span>1 hour ago</span></p>
-												</div>
-												<div class="clearfix"></div>	
-											</a></li>
-											<li><a href="#">
-												<div class="user_img"><img src="images/3.jpg" alt=""></div>
-												<div class="notification_desc">
-													<p>Lorem ipsum dolor amet </p>
-													<p><span>1 hour ago</span></p>
-												</div>
-												<div class="clearfix"></div>	
-											</a></li>
-											<li><a href="#">
-												<div class="user_img"><img src="images/2.jpg" alt=""></div>
-												<div class="notification_desc">
-													<p>Lorem ipsum dolor amet </p>
-													<p><span>1 hour ago</span></p>
-												</div>
-												<div class="clearfix"></div>	
-											</a></li>
 											<li>
 												<div class="notification_bottom">
-													<a href="#">See all notifications</a>
+													<a href="#">See all Order</a>
 												</div> 
 											</li>
 										</ul>
-									</li>	
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">8</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>You have 8 pending task</h3>
-												</div>
-											</li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Database update</span><span class="percentage">40%</span>
-													<div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													<div class="bar yellow" style="width:40%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
-													<div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													<div class="bar green" style="width:90%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
-													<div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													<div class="bar red" style="width: 33%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
-													<div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													<div class="bar  blue" style="width: 80%;"></div>
-												</div>
-											</a></li>
-											<li>
-												<div class="notification_bottom">
-													<a href="#">See all pending tasks</a>
-												</div> 
-											</li>
-										</ul>
-									</li>	
+									</li>
+
 								</ul>
 								<div class="clearfix"> </div>
 							</div>

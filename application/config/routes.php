@@ -52,3 +52,5 @@ $route['delete-item-cart']='User_controller/delete_item_cart';
 $route['check-out']='User_controller/checkout';
 //place order
 $route['place-order']='User_controller/place_order';
+//show order in admin panel
+$route['view-order/(.+)']='Admin/view_order/$1';

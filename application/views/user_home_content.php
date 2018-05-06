@@ -65,10 +65,7 @@
 						<i class="fa fa-home" aria-hidden="true"></i>
 						<h5>Home Decor</h5>
 					</a></li>
-					<li role="presentation"><a href="#sports" role="tab" id="sports-tab" data-toggle="tab"> 
-						<i class="fa fa-motorcycle" aria-hidden="true"></i>
-						<h5>Sports</h5>
-					</a></li> 
+					
 				</ul>
 
 
@@ -87,7 +84,7 @@
 											<a href="products.html"><img src="<?php echo $men_collection->product_image ;?>" height="220" width="150" alt="img"></a>
 											<div class="view-caption agileits-w3layouts">           
 												<h4><a href="products.html"><?php echo $men_collection->product_name;?></a></h4>
-												<p>Lorem ipsum dolor sit amet consectetur</p>
+												
 												<h5>&#2547;<?php echo $men_collection->product_price;?></h5> 
 												
 												<a href="javascript:void(0)" class="w3ls-cart" data-id="<?=$men_collection->product_id?>" data-name="<?=$men_collection->product_name?>" data-price="<?=$men_collection->product_price?>" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
@@ -127,7 +124,7 @@
 												<a href="products1.html"><img src="<?php echo $women_collection->product_image ;?>"  height="220" width="150" alt="img"></a>
 												<div class="view-caption agileits-w3layouts">           
 													<h4><a href="products1.html"><?php echo $women_collection->product_name;?></a></h4>
-													<p>Lorem ipsum dolor sit amet consectetur</p>
+													
 													<h5>&#2547;<?php echo $women_collection->product_price;?></h5>
 													<a href="javascript:void(0)" class="w3ls-cart" data-id="<?=$women_collection->product_id?>" data-name="<?=$women_collection->product_name?>" data-price="<?=$women_collection->product_price?>" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
 												</div>        
@@ -166,7 +163,7 @@
 														<a href="products3.html"><img src="<?php echo $electronic_product->product_image ;?>"  height="220" width="150" alt="img"></a>
 														<div class="view-caption agileits-w3layouts">           
 										<h4><a href="products3.html"><?php echo $electronic_product->product_name;?></a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
+															
 															<h5><?php echo $electronic_product->product_price;?></h5>
 														<a href="javascript:void(0)" class="w3ls-cart" data-id="<?=$electronic_product->product_id?>" data-name="<?=$electronic_product->product_name?>" data-price="<?=$electronic_product->product_price?>" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
 														</div>         
@@ -205,7 +202,7 @@
 														<a href="products3.html"><img src="<?php echo $home_decor->product_image ;?>"  height="220" width="150" alt="img"></a>
 														<div class="view-caption agileits-w3layouts">           
 															<h4><a href="products3.html"><?php echo $home_decor->product_name;?></a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
+															
 															<h5><?php echo $home_decor->product_price;?></h5>
 															<a href="javascript:void(0)" class="w3ls-cart" data-id="<?=$home_decor->product_id?>" data-name="<?=$home_decor->product_name?>" data-price="<?=$home_decor->product_price?>" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
 														</div>         
@@ -215,118 +212,7 @@
 												<?php }?>
 											</div>    
 										</div>
-									</div>
-									<div role="tabpanel" class="tab-pane fade" id="sports" aria-labelledby="sports-tab">
-										<div class="tabcontent-grids">
-											<script>
-												$(document).ready(function() { 
-													$("#owl-demo4").owlCarousel({
-
-										  autoPlay: 3000, //Set AutoPlay to 3 seconds
-										  
-										  items :4,
-										  itemsDesktop : [640,5],
-										  itemsDesktopSmall : [414,4],
-										  navigation : true
-										  
-										}); 
-												}); 
-											</script>
-											<div id="owl-demo4" class="owl-carousel"> 
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<div class="new-tag"><h6>New</h6></div>
-														<a href="products4.html"><img src="images/s1.png" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products4.html">Roller Skates</a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
-															<h5>$180</h5>
-															<a type="#" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>         
-													</div>  
-												</div>
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<a href="products4.html"><img src="images/s2.png" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products4.html">Football</a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
-															<h5>$70</h5>
-															<a type="#" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>        
-													</div> 
-												</div>
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<div class="new-tag"><h6>20% <br>Off</h6></div>
-														<a href="products4.html"><img src="images/s3.png" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products4.html">Nylon Shuttle</a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
-															<h5>$56</h5>
-															<a type="#" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>       
-													</div> 
-												</div>
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<a href="products4.html"><img src="images/s4.png" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products4.html">Cricket Kit</a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
-															<h5>$80</h5>
-															<a type="#" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>       
-													</div> 
-												</div>
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<div class="new-tag"><h6>New</h6></div>
-														<a href="products4.html"><img src="images/s1.png" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products4.html">Roller Skates</a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
-															<h5>$180</h5>
-															<a type="#" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>         
-													</div>  
-												</div>
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<a href="products4.html"><img src="images/s2.png" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products4.html">Football</a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
-															<h5>$70</h5>
-															<a type="#" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>        
-													</div> 
-												</div>
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<div class="new-tag"><h6>20% <br>Off</h6></div>
-														<a href="products4.html"><img src="<?php echo base_url()."assets/";?>images/s3.png" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products4.html">Nylon Shuttle</a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
-															<h5>$56</h5>
-															<a type="#" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>       
-													</div> 
-												</div>
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<a href="products4.html"><img src="images/s4.png" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products4.html">Cricket Kit</a></h4>
-															<p>Lorem ipsum dolor sit amet consectetur</p>
-															<h5>$80</h5>
-															<a type="#" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>       
-													</div> 
-												</div>
-											</div>    
-										</div>
+							
 									</div> 
 								</div>   
 							</div>  

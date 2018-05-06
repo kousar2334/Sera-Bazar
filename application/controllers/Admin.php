@@ -20,6 +20,7 @@ class Admin extends CI_Controller {
 	{
 		$data=array();
 		$data['all_message_info']=$this->admin_model->view_message();
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['admin_main_content']=$this->load->view('admin/admin_main_content',$data,true);
 		$this->load->view('admin/dashboard',$data);
 	}
@@ -268,5 +269,17 @@ class Admin extends CI_Controller {
 		$this->session->set_userdata($sdata);
 		redirect('add-admin');
 
+	}
+	//show order
+	public function view_order($order_id)
+	{
+		$data=array();
+		$data['order_info']=$this->admin_model->order_view($order_id);
+		//$this->admin_model->update_order_status($order_id);
+
+		$data['all_message_info']=$this->admin_model->view_message();
+		$data['all_order_info']=$this->admin_model->view_order_list();
+		$data['admin_main_content']=$this->load->view('admin/view_order',$data,true);
+		$this->load->view('admin/dashboard',$data);
 	}
 }

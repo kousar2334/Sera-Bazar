@@ -151,7 +151,29 @@ public function checkout()
 //place order
 public function place_order()
 {
-	echo "<pre>";
-	print_r($_POST);
+
+
+
+	$data=array();
+	$pro_name=$this->input->post('product_name',true);
+	$pro_id=$this->input->post('product_id',true);
+	$pro_qty=$this->input->post('product_qty',true);
+	$pro_price=$this->input->post('product_price',true);
+	$pro_subtotal=$this->input->post('product_subtotal',true);
+	$data['product_name']=implode(',', $pro_name);
+	$data['product_id']=implode(',', $pro_id);
+	$data['product_qty']=implode(',', $pro_qty);
+	$data['product_price']=implode(',',$pro_price);
+	$data['product_subtotal']=implode(',', $pro_subtotal);
+	$data['grand_total']=$this->input->post('grand_total',true);
+	$data['user_name']=$this->input->post('user_name',true);
+	$data['user_email']=$this->input->post('user_email',true);
+	$data['user_phone']=$this->input->post('user_phone',true);
+	$data['user_address']=$this->input->post('user_address',true);
+	$this->user_model->store_order($data);
+     
+	redirect(base_url());
+
+	
 }
 }
