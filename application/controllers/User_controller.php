@@ -6,7 +6,7 @@ class User_controller extends CI_Controller {
 	public function index()
 	{   
 		$data=array();
-
+        $data['title'] = "Sera Bazar-Online shopping";
 		$data['all_men_collection']=$this->user_model->view_men_shopping();
 		$data['all_electronic_product']=$this->user_model->view_electronic_product();
 		$data['all_women_collection']=$this->user_model->view_women_shopping();
@@ -19,6 +19,7 @@ class User_controller extends CI_Controller {
 	public function user_signup()
 	{
 		$data=array();
+		 $data['title'] = "Sign Up |Sera Bazar";
 		$data['user_home_content']=$this->load->view('user_sign_up',$data,true);
 		$this->load->view('user_dashboard',$data);
 	}
@@ -27,6 +28,7 @@ class User_controller extends CI_Controller {
 	{
 		$this->load->model('User_model');
 		$data=array();
+
 		$data['user_name']=$this->input->post('user_name',true);
 		$data['user_email']=$this->input->post('user_email',true);
 		$data['user_password']=$this->input->post('user_password',true);
@@ -40,6 +42,7 @@ class User_controller extends CI_Controller {
 	public function user_login()
 	{
 		$data=array();
+		 $data['title'] = "Login|Sera Bazar";
 		$data['all_category_info']=$this->admin_model->view_category_subcategory();
 		$data['user_home_content']=$this->load->view('user_log_in',$data,true);
 		$this->load->view('user_dashboard',$data);
@@ -48,22 +51,22 @@ class User_controller extends CI_Controller {
 	public function user_login_verify()
 	{
 
-		$data=array();
+		$user_data=array();
 		$user_email=$this->input->post('user_email',true);
 		$user_password=$this->input->post('user_password',true);
 		$user_info=$this->user_model->user_login_verify($user_email,$user_password);
 
 		if($user_info)
 		{
-			$data['user_name']=$user_info->user_name;
-			$this->session->set_userdata($data);
+			$user_data['user_name']=$user_info->user_name;
+			$this->session->set_userdata($user_data);
 
-			redirect(base_url(),$data);
+			redirect(base_url(),$user_data);
 		}else
 		{
-			$data['error']="Email or password is incorrect";
-			$this->session->set_userdata($data);
-			redirect('log-in',$data);
+			$user_data['error']="Email or password is incorrect";
+			$this->session->set_userdata($user_data);
+			redirect('log-in',$user_data);
 		}
 		
 	}
@@ -77,6 +80,7 @@ class User_controller extends CI_Controller {
 	public function contact_us()
 	{
 		$data=array();
+		$data['title'] = "contact Us |Sera Bazar";
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['user_home_content']=$this->load->view('contact_us',$data,true);
 		$this->load->view('user_dashboard',$data);
@@ -118,6 +122,7 @@ $this->cart->insert($data);
 	{
 		$this->load->library('cart');
 		$data=array();
+		$data['title'] = "View  Cart |Sera Bazar";
 		$data['cart_data']=$this->cart->contents();
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['user_home_content']=$this->load->view('cart',$data,true);
@@ -143,6 +148,7 @@ public function checkout()
 {
 	$this->load->library('cart');
 		$data=array();
+		$data['title'] = "checkout |Sera Bazar";
 		$data['cart_data']=$this->cart->contents();
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['user_home_content']=$this->load->view('checkout',$data,true);
@@ -171,8 +177,10 @@ public function place_order()
 	$data['user_phone']=$this->input->post('user_phone',true);
 	$data['user_address']=$this->input->post('user_address',true);
 	$this->user_model->store_order($data);
-     
-	redirect(base_url());
+	$order_msg=array();
+	$order_msg['order_message']="Order Place Successfully";
+    $this->session->set_userdata($order_msg);
+	redirect(base_url(),$order_msg);
 
 	
 }

@@ -19,6 +19,7 @@ class Admin extends CI_Controller {
 	public function dashboard()
 	{
 		$data=array();
+		        $data['title'] = "Dashboard |Sera Bazar";
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['admin_main_content']=$this->load->view('admin/admin_main_content',$data,true);
@@ -60,10 +61,12 @@ class Admin extends CI_Controller {
 	{
 		
 		$data=array();
+		$data['title'] = "Message/".md5($viewer_msg_id);
 		//$message_id=$this->input->post('message_id',true);
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['message_info']=$this->admin_model->message_view($viewer_msg_id);
 		$this->admin_model->update_message_status($viewer_msg_id);
-
+       
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['admin_main_content']=$this->load->view('admin/view_message',$data,true);
 		$this->load->view('admin/dashboard',$data);
@@ -72,7 +75,9 @@ class Admin extends CI_Controller {
 	public function add_category()
 	{
 		$data=array();
+		$data['title'] = "Add Category";
 		$data['all_message_info']=$this->admin_model->view_message();
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['admin_main_content']=$this->load->view('admin/add_category_form','',true);
 		$this->load->view('admin/dashboard',$data);
 
@@ -92,6 +97,8 @@ class Admin extends CI_Controller {
 	public function add_subcategory()
 	{
 		$data=array();
+		$data['title'] = "Add Subcategory";
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['admin_main_content']=$this->load->view('admin/add_subcategory_form',$data,true);
@@ -152,6 +159,8 @@ class Admin extends CI_Controller {
 	public function add_item()
 	{
 		$data=array();
+		$data['title'] = "Add Items";
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['admin_main_content']=$this->load->view('admin/add_item_form',$data,true);
@@ -177,6 +186,8 @@ class Admin extends CI_Controller {
 	public function add_product()
 	{
 		$data=array();
+		$data['title'] = "Add Product";
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['admin_main_content']=$this->load->view('admin/add_product_form',$data,true);
@@ -199,6 +210,8 @@ class Admin extends CI_Controller {
 //Redirect the manage the product information page
 	public function manage_product(){
 		$data=array();
+		$data['title'] = "All Product Information";
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['all_product_info']=$this->admin_model->all_product_info();
 		$data['admin_main_content']=$this->load->view('admin/manage_product',$data,true);
@@ -209,7 +222,9 @@ class Admin extends CI_Controller {
 	public function add_inventory()
 	{
      $data=array();
+             $data['title'] = "Add Inventory";
 		$data['all_message_info']=$this->admin_model->view_message();
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['admin_main_content']=$this->load->view('admin/add_inventory_form',$data,true);
 		
@@ -219,8 +234,10 @@ class Admin extends CI_Controller {
 	public function manage_inventory()
 	{
 		$data=array();
+		$data['title'] = "Inventory Information";
 		$data['all_inventory_info']=$this->admin_model->manage_inventory();
 		$data['all_message_info']=$this->admin_model->view_message();
+		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['admin_main_content']=$this->load->view('admin/manage_inventory',$data,true);
 		$this->load->view('admin/dashboard',$data);
 
@@ -274,6 +291,7 @@ class Admin extends CI_Controller {
 	public function view_order($order_id)
 	{
 		$data=array();
+		$data['title'] = "Order/".$order_id;
 		$data['order_info']=$this->admin_model->order_view($order_id);
 		//$this->admin_model->update_order_status($order_id);
 

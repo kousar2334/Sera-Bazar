@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title> Sera Bazar Online Shopping </title>
+	<title><?php echo isset($title) ? $title : 'Sera Bazar Online Shopping' ; ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
@@ -99,7 +99,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<div class="header">
 		<div class="w3ls-header"><!--header-one--> 
 			<div class="w3ls-header-left">
-				<p><a href="#">UPTO $50 OFF ON LAPTOPS | USE COUPON CODE LAPPY </a></p>
+				<p><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> 01773340092  (24*7)</a></p>
 			</div>
 			<div class="w3ls-header-right">
 				<ul>
@@ -111,139 +111,141 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 								<span class="caret"></span></a>
 								<ul class="dropdown-menu">
 
-									<li><a href="login.html">My Orders</a></li>  
-									<li><a href="login.html">Wallet</a></li> 
+									<li><a href="#">My Orders</a></li>  
+									<li><a href="#">Wallet</a></li> 
 									<li><a href="<?php echo base_url();?>user-log-out">Log Out</a></li> 
 								</ul>
 
-							<?php }else
-							{?>
-								My Account
-								<span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="<?php echo base_url();?>log-in">Login </a></li> 
-									<li><a href="<?php echo base_url();?>sign-up">Sign Up</a></li> 
-								</ul>
+								<?php }else
+								{?>
+									My Account
+									<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="<?php echo base_url();?>log-in">Login </a></li> 
+										<li><a href="<?php echo base_url();?>sign-up">Sign Up</a></li> 
+									</ul>
 
 
-								<?php }?>
-								 
-							</li> 
-							<li class="dropdown head-dpdn">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> Today's Deals<span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="offers.html">Cash Back Offers</a></li> 
-									<li><a href="offers.html">Product Discounts</a></li>
-									<li><a href="offers.html">Special Offers</a></li> 
-								</ul> 
-							</li> 
-							<li class="dropdown head-dpdn">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> Gift Cards<span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="offers.html">Product Gift card</a></li> 
-									<li><a href="offers.html">Occasions Register</a></li>
-									<li><a href="offers.html">View Balance</a></li> 
-								</ul> 
-							</li> 
-							<li class="dropdown head-dpdn">
-								<a href="<?php echo base_url();?>contact-us" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> Store Finder</a>
-							</li> 
-							<li class="dropdown head-dpdn">
-								<a href="card.html" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Credit Card</a>
-							</li> 
-							<li class="dropdown head-dpdn">
-								<a href="help.html" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
-							</li>
-						</ul>
-					</div>
-					<div class="clearfix"> </div> 
-				</div>
-				<div class="header-two"><!-- header-two -->
-					<div class="container">
-						<div class="header-logo">
-							<h1><a href="<?php echo base_url(); ?>"><span>S</span>Sera <i>Bazar</i></a></h1>
-							<h6>Your stores. Your place.</h6> 
-						</div>	
-						<div class="header-search">
-							<form action="#" method="post">
-								<input type="search" name="Search" placeholder="Search for a Product..." required="">
-								<button type="submit" class="btn btn-default" aria-label="Left Align">
-									<i class="fa fa-search" aria-hidden="true"> </i>
-								</button>
-							</form>
+									<?php }?>
+
+								</li> 
+								<li class="dropdown head-dpdn">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> Today's Deals<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="#">Cash Back Offers</a></li> 
+										<li><a href="#">Product Discounts</a></li>
+										<li><a href="#">Special Offers</a></li> 
+									</ul> 
+								</li> 
+								
+								<li class="dropdown head-dpdn">
+									<a href="<?php echo base_url();?>contact-us" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> Store Finder</a>
+								</li> 
+								
+								<li class="dropdown head-dpdn">
+									<a href="#" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
+								</li>
+							</ul>
 						</div>
-						<div class="header-cart"> 
-							<div class="my-account">
-								<a href="<?php echo base_url();?>contact-us"><i class="fa fa-map-marker" aria-hidden="true"></i> CONTACT US</a>						
+						<div class="clearfix"> </div> 
+					</div>
+					<div class="header-two"><!-- header-two -->
+						<div class="container">
+							<div class="header-logo">
+								<h1><a href="<?php echo base_url(); ?>"><span>S</span>Sera <i>Bazar</i></a></h1>
+								<h6>Your stores. Your place.</h6> 
+							</div>	
+							<div class="header-search">
+								<form action="#" method="post">
+									<input type="search" name="Search" placeholder="Search for a Product..." required="">
+									<button type="submit" class="btn btn-default" aria-label="Left Align">
+										<i class="fa fa-search" aria-hidden="true"> </i>
+									</button>
+								</form>
 							</div>
-							<div class="cart"> 
+							<div class="header-cart"> 
+								<div class="my-account">
+									<a href="<?php echo base_url();?>contact-us"><i class="fa fa-map-marker" aria-hidden="true"></i> CONTACT US</a>						
+								</div>
+								<div class="cart"> 
+									<a href="<?php echo base_url();?>cart-view" class="btn btl-lg fa fa-cart-arrow-down">1</a>
 
-								<a href="<?php echo base_url();?>cart-view" ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
-								 
-							</div>
-							<div class="clearfix"> </div> 
-						</div> 
-						<div class="clearfix"> </div>
-					</div>		
-				</div><!-- //header-two -->
+								</div>
+								<div class="clearfix"> </div> 
+							</div> 
 
+							<div class="clearfix"> </div>
+						</div>		
+						<h3 class="danger" style="margin-left: 40%">
 
-				<div class="header-three"><!-- header-three -->
-					<div class="container">
-						<div class="menu">
-							<div class="cd-dropdown-wrapper">
-								<a class="cd-dropdown-trigger" href="#0">Store Categories</a>
-								<nav class="cd-dropdown"> 
-									<a href="#0" class="cd-close">Close</a>
-									<ul class="cd-dropdown-content"> 
-										<li><a href="offers.html">Today's Offers</a></li>
+							<?php
+							$order_message=$this->session->userdata('order_message');
+							if($order_message){
+								echo $order_message;
+								$this->session->unset_userdata('order_message');
+							}
 
-
-										<?php
-										foreach ($all_category_info as $category_info) {
-											?>
-											<li class="has-children">
-												<a href="#" id="category"><?php echo $category_info->category_name; ?></a> 
-												<ul class="cd-secondary-dropdown is-hidden">
-													<li class="go-back"><a href="#">Menu</a></li>
-													<li class="see-all"><a href="products.html">All Electronics</a></li>
-													<li class="has-children">
-														<a href="#" id="subcategory">Subcategory</a>  
-														<ul class="is-hidden"> 
-															<li class="go-back"><a href="#">All Electronics</a></li> 
-															<li class="has-children">
-																<a href="#0">SmartPhones</a> 
-																<ul class="is-hidden"> 
-																	<li class="go-back"><a href="#"> </a></li>
-																	<li><a href="products.html">Android</a></li>
-																	<li><a href="products.html">Windows</a></li>
-																	<li><a href="products.html">Black berry</a></li>
-																</ul>
-															</li>
-															<li> <a href="products.html">IPhones</a> </li>
-															<li><a href="products.html">Tablets</a></li>
-															<li><a href="products.html">IPad</a></li>
-															<li><a href="products.html">Feature Phones</a></li> 
-														</ul>
-													</li> 
+							?>
+						</h3>
+					</div><!-- //header-two -->
 
 
-												</ul> <!-- .cd-secondary-dropdown --> 
-											</li> <!-- .has-children -->
+					<div class="header-three"><!-- header-three -->
+						<div class="container">
+							<div class="menu">
+								<div class="cd-dropdown-wrapper">
+									<a class="cd-dropdown-trigger" href="#0">Store Categories</a>
+									<nav class="cd-dropdown"> 
+										<a href="#0" class="cd-close">Close</a>
+										<ul class="cd-dropdown-content"> 
+											<li><a href="offers.html">Today's Offers</a></li>
 
 
-											<?php } ?>
+											<?php
+											foreach ($all_category_info as $category_info) {
+												?>
+												<li class="has-children">
+													<a href="#" id="category"><?php echo $category_info->category_name; ?></a> 
+													<ul class="cd-secondary-dropdown is-hidden">
+														<li class="go-back"><a href="#">Menu</a></li>
+														<li class="see-all"><a href="products.html">All Electronics</a></li>
+														<li class="has-children">
+															<a href="#" id="subcategory">Subcategory</a>  
+															<ul class="is-hidden"> 
+																<li class="go-back"><a href="#">All Electronics</a></li> 
+																<li class="has-children">
+																	<a href="#0">SmartPhones</a> 
+																	<ul class="is-hidden"> 
+																		<li class="go-back"><a href="#"> </a></li>
+																		<li><a href="products.html">Android</a></li>
+																		<li><a href="products.html">Windows</a></li>
+																		<li><a href="products.html">Black berry</a></li>
+																	</ul>
+																</li>
+																<li> <a href="products.html">IPhones</a> </li>
+																<li><a href="products.html">Tablets</a></li>
+																<li><a href="products.html">IPad</a></li>
+																<li><a href="products.html">Feature Phones</a></li> 
+															</ul>
+														</li> 
 
 
-										</ul> <!-- .cd-dropdown-content -->
-									</nav> <!-- .cd-dropdown -->
-								</div> <!-- .cd-dropdown-wrapper -->	 
-							</div>
-							<div class="move-text">
-								<div class="marquee"><a href="offers.html"> New collections are available here...... <span>Get extra 10% off on everything | no extra taxes </span> <span> Try shipping pass free for 15 days with unlimited</span></a></div>
-								<script type="text/javascript" src="<?php echo base_url()."assets/";?>js/jquery.marquee.min.js"></script>
-								<script>
-									$('.marquee').marquee({ pauseOnHover: true });
+													</ul> <!-- .cd-secondary-dropdown --> 
+												</li> <!-- .has-children -->
+
+
+												<?php } ?>
+
+
+											</ul> <!-- .cd-dropdown-content -->
+										</nav> <!-- .cd-dropdown -->
+									</div> <!-- .cd-dropdown-wrapper -->	 
+								</div>
+								<div class="move-text">
+									<div class="marquee"><a href="offers.html"> New collections are available here...... <span>Get extra 10% off on everything | no extra taxes </span> <span> Try shipping pass free for 15 days with unlimited</span></a></div>
+									<script type="text/javascript" src="<?php echo base_url()."assets/";?>js/jquery.marquee.min.js"></script>
+									<script>
+										$('.marquee').marquee({ pauseOnHover: true });
 					  //@ sourceURL=pen.js
 					</script>
 				</div>
