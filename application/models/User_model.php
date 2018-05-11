@@ -21,13 +21,25 @@ class User_model extends CI_Model {
 	//user login verify
 	public function user_login_verify($user_email,$user_password)
 	{
-     $this->db->select('*');
-     $this->db->from('tbl_user');
-     $this->db->where('user_email',$user_email);
-     $this->db->where('user_password',$user_password);
-     $query=$this->db->get();
-     $user_info=$query->row();
-     return $user_info;
+		$this->db->select('*');
+		$this->db->from('tbl_user');
+		$this->db->where('user_email',$user_email);
+		$this->db->where('user_password',$user_password);
+		$query=$this->db->get();
+		$user_info=$query->row();
+		return $user_info;
+	}
+	//view store subcategory and item
+	public function store_categories($category_name)
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_main_category');
+		$this->db->where('category_name',$category_name);
+		$this->db->join('tbl_subcategory','tbl_main_category.category_id=tbl_subcategory.category_id');
+		$this->db->join('tbl_item','tbl_subcategory.subcategory_id=tbl_item.subcategory_id');
+		$query=$this->db->get();
+		$store_categories=$query->result();
+		return $store_categories;
 	}
 
     //view pdoduct details for men shopping category
@@ -73,12 +85,22 @@ class User_model extends CI_Model {
 		$all_electronic_product=$query->result();
 		return $all_electronic_product;
 	}
+	//view single product information
+	public function product_details($product_id)
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_products');
+		$this->db->where('product_id',$product_id);
+		$qurey=$this->db->get();
+		$product_info=$qurey->result();
+		return $product_info;
+	}
 
     //store the order information
-    public function store_order($data)
-    {
-     $this->db->insert('tbl_order',$data);
-    }
+	public function store_order($data)
+	{
+		$this->db->insert('tbl_order',$data);
+	}
 
 }
 ?>

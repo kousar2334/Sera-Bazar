@@ -198,36 +198,29 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									<nav class="cd-dropdown"> 
 										<a href="#0" class="cd-close">Close</a>
 										<ul class="cd-dropdown-content"> 
-											<li><a href="offers.html">Today's Offers</a></li>
+											<li><a href="#">Today's Offers</a></li>
 
 
 											<?php
 											foreach ($all_category_info as $category_info) {
 												?>
-												<li class="has-children">
-													<a href="#" id="category"><?php echo $category_info->category_name; ?></a> 
+												<li class="has-children" id="category">
+
+													<a href="#"><?php echo $category_info->category_name; ?></a> 
 													<ul class="cd-secondary-dropdown is-hidden">
-														<li class="go-back"><a href="#">Menu</a></li>
 														<li class="see-all"><a href="products.html">All Electronics</a></li>
-														<li class="has-children">
-															<a href="#" id="subcategory">Subcategory</a>  
+
+														<li class="has-children" id="subcategory">
+															<a href="#"></a>  
 															<ul class="is-hidden"> 
 																<li class="go-back"><a href="#">All Electronics</a></li> 
-																<li class="has-children">
-																	<a href="#0">SmartPhones</a> 
-																	<ul class="is-hidden"> 
-																		<li class="go-back"><a href="#"> </a></li>
-																		<li><a href="products.html">Android</a></li>
-																		<li><a href="products.html">Windows</a></li>
-																		<li><a href="products.html">Black berry</a></li>
-																	</ul>
-																</li>
-																<li> <a href="products.html">IPhones</a> </li>
+																<li id="item"> <a href="products.html">IPhones</a> </li>
 																<li><a href="products.html">Tablets</a></li>
 																<li><a href="products.html">IPad</a></li>
 																<li><a href="products.html">Feature Phones</a></li> 
 															</ul>
 														</li> 
+
 
 
 													</ul> <!-- .cd-secondary-dropdown --> 
@@ -242,7 +235,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 									</div> <!-- .cd-dropdown-wrapper -->	 
 								</div>
 								<div class="move-text">
-									<div class="marquee"><a href="offers.html"> New collections are available here...... <span>Get extra 10% off on everything | no extra taxes </span> <span> Try shipping pass free for 15 days with unlimited</span></a></div>
+									<div class="marquee"><a href="#"> New collections are available here...... <span>Get extra 10% off on everything | no extra taxes </span> <span> Try shipping pass free for 15 days with unlimited</span></a></div>
 									<script type="text/javascript" src="<?php echo base_url()."assets/";?>js/jquery.marquee.min.js"></script>
 									<script>
 										$('.marquee').marquee({ pauseOnHover: true });
@@ -352,25 +345,28 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<p>© 2018  sera bazar . All rights reserved | Developed by <a href="https://www.facebook.com/kousarrahman"> Kousar Rahman</a></p>
 		</div>
 	</div> 
-	<!-- cart-js -->
-	
-	<script>
-		w3ls.render();
+    
+	<script type="text/javascript">
+					$('#category a').hover(function()
+					{						
+						 var category_name=$(this).html();	
+						 					
+						$.ajax({
+							url:"<?php echo base_url();?>subcategory-view",
+							type:"POST",
+							data:{'category_name':category_name},
+							
+							success:function(data){
 
-		w3ls.cart.on('w3sb_checkout', function (evt) {
-			var items, len, i;
+								
+								$('#subcategory a').html(data);
+								console.log(data);
+							},
+							
+						});
 
-			if (this.subtotal() > 0) {
-				items = this.items();
-
-				for (i = 0, len = items.length; i < len; i++) {
-					items[i].set('shipping', 0);
-					items[i].set('shipping2', 0);
-				}
-			}
-		});
-	</script>  
-	<!-- //cart-js -->	
+					});
+				</script>
 	<!-- countdown.js -->	
 	<script src="<?php echo base_url()."assets/";?>js/jquery.knob.js"></script>
 	<script src="<?php echo base_url()."assets/";?>js/jquery.throttle.js"></script>

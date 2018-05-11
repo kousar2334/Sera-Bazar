@@ -14,21 +14,14 @@
 	<tbody>
 
 		<?php
+		$i=1;
 
 		foreach ($all_product_info as $product_info) {
 
 
 			?>
 			<tr>
-				<th scope="col">
-					<?php
-					$i=1;
-					for($i=1;$i<=count($product_info);$i++){
-						echo $i;
-					}
-
-					?>
-				</th>
+				<th scope="col"><?php echo $i++; ?></th>
 				<td><?php echo $product_info->product_name ;?></td>
 				<td><?php echo $product_info->product_price ;?></td>
 				<td><img src="<?php echo $product_info->product_image ;?>" alt="" height="50" width="60" >  </td>

@@ -6,7 +6,7 @@ class User_controller extends CI_Controller {
 	public function index()
 	{   
 		$data=array();
-        $data['title'] = "Sera Bazar-Online shopping";
+		$data['title'] = "Sera Bazar-Online shopping";
 		$data['all_men_collection']=$this->user_model->view_men_shopping();
 		$data['all_electronic_product']=$this->user_model->view_electronic_product();
 		$data['all_women_collection']=$this->user_model->view_women_shopping();
@@ -19,7 +19,7 @@ class User_controller extends CI_Controller {
 	public function user_signup()
 	{
 		$data=array();
-		 $data['title'] = "Sign Up |Sera Bazar";
+		$data['title'] = "Sign Up |Sera Bazar";
 		$data['user_home_content']=$this->load->view('user_sign_up',$data,true);
 		$this->load->view('user_dashboard',$data);
 	}
@@ -42,7 +42,7 @@ class User_controller extends CI_Controller {
 	public function user_login()
 	{
 		$data=array();
-		 $data['title'] = "Login|Sera Bazar";
+		$data['title'] = "Login|Sera Bazar";
 		$data['all_category_info']=$this->admin_model->view_category_subcategory();
 		$data['user_home_content']=$this->load->view('user_log_in',$data,true);
 		$this->load->view('user_dashboard',$data);
@@ -72,8 +72,8 @@ class User_controller extends CI_Controller {
 	}
 	public function log_out()
 	{
-    $this->session->unset_userdata('user_name');
-	redirect(base_url());
+		$this->session->unset_userdata('user_name');
+		redirect(base_url());
 	}
 	
 //load th contact us page
@@ -85,13 +85,31 @@ class User_controller extends CI_Controller {
 		$data['user_home_content']=$this->load->view('contact_us',$data,true);
 		$this->load->view('user_dashboard',$data);
 	}
+    //view subcategory in store categories link
+	public function subcategory_view()
+	{
+		$category_name=$this->input->post('category_name',true);
+		$data=array();
+		$store_categories=$this->user_model->store_categories($category_name);
+		
+		foreach ($store_categories as $key => $value) {
+
+			print_r($value);
+		}
+
+
+		
+		
+	}
+
+
 	//Store viewer message to server
 	public function send_viewer_msg()
 	{
-     $data=array();
-        $this->user_model->store_message(); 
-        $data['message']="Message has send . Please check  your email";
-        $this->session->set_userdata($data);
+		$data=array();
+		$this->user_model->store_message(); 
+		$data['message']="Message has send . Please check  your email";
+		$this->session->set_userdata($data);
 
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['user_home_content']=$this->load->view('contact_us',$data,true);
@@ -105,15 +123,15 @@ class User_controller extends CI_Controller {
 		$name=$this->input->post('name',true);
 		$price=$this->input->post('price',true);
 		$data = array(
-        'id'      => $id,
-        'qty'     => 1,
-        'price'   => $price,
-        'name'    => $name,
-       
-);
+			'id'      => $id,
+			'qty'     => 1,
+			'price'   => $price,
+			'name'    => $name,
 
-$this->cart->insert($data);
-	
+		);
+
+		$this->cart->insert($data);
+
 		
 
 	}
@@ -135,53 +153,65 @@ $this->cart->insert($data);
 		$rowid=$this->input->post('rowid',true);
 		$this->load->library('cart');
 		$data = array(
-        'rowid' => $rowid,
-        'qty'   => 0
-);
+			'rowid' => $rowid,
+			'qty'   => 0
+		);
 
-$this->cart->update($data);
-	
-	
-}
+		$this->cart->update($data);
+
+
+	}
 //check out
-public function checkout()
-{
-	$this->load->library('cart');
+	public function checkout()
+	{
+		$this->load->library('cart');
 		$data=array();
 		$data['title'] = "checkout |Sera Bazar";
 		$data['cart_data']=$this->cart->contents();
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['user_home_content']=$this->load->view('checkout',$data,true);
 		$this->load->view('user_dashboard',$data);
-}
+	}
+
+	//view single product details
+	public function product($product_id)
+	{ 
+		
+		$data=array();
+		$data['product_info']=$this->user_model->product_details($product_id);
+		$data['all_category_info']=$this->admin_model->view_category();
+		$data['user_home_content']=$this->load->view('single_product',$data,true);
+		$this->load->view('user_dashboard',$data);
+
+	}
 //place order
-public function place_order()
-{
+	public function place_order()
+	{
 
 
 
-	$data=array();
-	$pro_name=$this->input->post('product_name',true);
-	$pro_id=$this->input->post('product_id',true);
-	$pro_qty=$this->input->post('product_qty',true);
-	$pro_price=$this->input->post('product_price',true);
-	$pro_subtotal=$this->input->post('product_subtotal',true);
-	$data['product_name']=implode(',', $pro_name);
-	$data['product_id']=implode(',', $pro_id);
-	$data['product_qty']=implode(',', $pro_qty);
-	$data['product_price']=implode(',',$pro_price);
-	$data['product_subtotal']=implode(',', $pro_subtotal);
-	$data['grand_total']=$this->input->post('grand_total',true);
-	$data['user_name']=$this->input->post('user_name',true);
-	$data['user_email']=$this->input->post('user_email',true);
-	$data['user_phone']=$this->input->post('user_phone',true);
-	$data['user_address']=$this->input->post('user_address',true);
-	$this->user_model->store_order($data);
-	$order_msg=array();
-	$order_msg['order_message']="Order Place Successfully";
-    $this->session->set_userdata($order_msg);
-	redirect(base_url(),$order_msg);
+		$data=array();
+		$pro_name=$this->input->post('product_name',true);
+		$pro_id=$this->input->post('product_id',true);
+		$pro_qty=$this->input->post('product_qty',true);
+		$pro_price=$this->input->post('product_price',true);
+		$pro_subtotal=$this->input->post('product_subtotal',true);
+		$data['product_name']=implode(',', $pro_name);
+		$data['product_id']=implode(',', $pro_id);
+		$data['product_qty']=implode(',', $pro_qty);
+		$data['product_price']=implode(',',$pro_price);
+		$data['product_subtotal']=implode(',', $pro_subtotal);
+		$data['grand_total']=$this->input->post('grand_total',true);
+		$data['user_name']=$this->input->post('user_name',true);
+		$data['user_email']=$this->input->post('user_email',true);
+		$data['user_phone']=$this->input->post('user_phone',true);
+		$data['user_address']=$this->input->post('user_address',true);
+		$this->user_model->store_order($data);
+		$order_msg=array();
+		$order_msg['order_message']="Order Place Successfully";
+		$this->session->set_userdata($order_msg);
+		redirect(base_url(),$order_msg);
 
-	
-}
+
+	}
 }

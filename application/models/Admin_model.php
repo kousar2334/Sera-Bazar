@@ -202,5 +202,15 @@ class Admin_model extends CI_Model {
     $this->db->update('tbl_order');
 
   }
+  //show all the information about order
+  public function manage_order()
+  {
+    $this->db->select('*');
+    $this->db->from('tbl_order');
+    //$this->db->order_by('user_name', 'desc');
+    $qurey=$this->db->get();
+    $all_order_info=$qurey->result();
+    return $all_order_info;
+  }
 
 }?>

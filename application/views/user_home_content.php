@@ -81,9 +81,9 @@
 									?>
 									<div class="item">
 										<div class="glry-w3agile-grids agileits"> 
-											<a href="products.html"><img src="<?php echo $men_collection->product_image ;?>" height="220" width="150" alt="img"></a>
+											<a href="<?php echo base_url();?>product/<?php echo $men_collection->product_id;?>"><img src="<?php echo $men_collection->product_image ;?>" height="220" width="150" alt="img"></a>
 											<div class="view-caption agileits-w3layouts">           
-												<h4><a href="products.html"><?php echo $men_collection->product_name;?></a></h4>
+												<h4><a href="<?php echo base_url();?>product/<?php echo $men_collection->product_id;?>"><?php echo $men_collection->product_name;?></a></h4>
 												
 												<h5>&#2547;<?php echo $men_collection->product_price;?></h5> 
 												
@@ -121,9 +121,9 @@
 										?>
 										<div class="item">
 											<div class="glry-w3agile-grids agileits"> 
-												<a href="products1.html"><img src="<?php echo $women_collection->product_image ;?>"  height="220" width="150" alt="img"></a>
+												<a href="<?php echo base_url();?>product/<?php echo $women_collection->product_id;?>"><img src="<?php echo $women_collection->product_image ;?>"  height="220" width="150" alt="img"></a>
 												<div class="view-caption agileits-w3layouts">           
-													<h4><a href="products1.html"><?php echo $women_collection->product_name;?></a></h4>
+													<h4><a href="<?php echo base_url();?>product/<?php echo $women_collection->product_id;?>"><?php echo $women_collection->product_name;?></a></h4>
 													
 													<h5>&#2547;<?php echo $women_collection->product_price;?></h5>
 													<a href="javascript:void(0)" class="w3ls-cart" data-id="<?=$women_collection->product_id?>" data-name="<?=$women_collection->product_name?>" data-price="<?=$women_collection->product_price?>" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
@@ -156,21 +156,21 @@
 
 										<?php foreach ($all_electronic_product as $electronic_product) {
 
-												?>
-												<div class="item">
-													<div class="glry-w3agile-grids agileits"> 
-														<div class="new-tag"><h6>new</h6></div>
-														<a href="products3.html"><img src="<?php echo $electronic_product->product_image ;?>"  height="220" width="150" alt="img"></a>
-														<div class="view-caption agileits-w3layouts">           
-										<h4><a href="products3.html"><?php echo $electronic_product->product_name;?></a></h4>
-															
-															<h5><?php echo $electronic_product->product_price;?></h5>
-														<a href="javascript:void(0)" class="w3ls-cart" data-id="<?=$electronic_product->product_id?>" data-name="<?=$electronic_product->product_name?>" data-price="<?=$electronic_product->product_price?>" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
-														</div>         
-													</div>  
-												</div>
+											?>
+											<div class="item">
+												<div class="glry-w3agile-grids agileits"> 
+													<div class="new-tag"><h6>new</h6></div>
+													<a href="<?php echo base_url();?>product/<?php echo $electronic_product->product_id;?>"><img src="<?php echo $electronic_product->product_image ;?>"  height="220" width="150" alt="img"></a>
+													<div class="view-caption agileits-w3layouts">           
+														<h4><a href="<?php echo base_url();?>product/<?php echo $electronic_product->product_id;?>"><?php echo $electronic_product->product_name;?></a></h4>
 
-												<?php }?>
+														<h5><?php echo $electronic_product->product_price;?></h5>
+														<a href="javascript:void(0)" class="w3ls-cart" data-id="<?=$electronic_product->product_id?>" data-name="<?=$electronic_product->product_name?>" data-price="<?=$electronic_product->product_price?>" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
+													</div>         
+												</div>  
+											</div>
+
+											<?php }?>
 										</div>    
 									</div>
 								</div>
@@ -199,9 +199,9 @@
 												<div class="item">
 													<div class="glry-w3agile-grids agileits"> 
 														<div class="new-tag"><h6>new</h6></div>
-														<a href="products3.html"><img src="<?php echo $home_decor->product_image ;?>"  height="220" width="150" alt="img"></a>
+														<a href="<?php echo base_url();?>product/<?php echo $home_decor->product_id;?>"><img src="<?php echo $home_decor->product_image ;?>"  height="220" width="150" alt="img"></a>
 														<div class="view-caption agileits-w3layouts">           
-															<h4><a href="products3.html"><?php echo $home_decor->product_name;?></a></h4>
+															<h4><a href="<?php echo base_url();?>product/<?php echo $home_decor->product_id;?>"><?php echo $home_decor->product_name;?></a></h4>
 															
 															<h5><?php echo $home_decor->product_price;?></h5>
 															<a href="javascript:void(0)" class="w3ls-cart" data-id="<?=$home_decor->product_id?>" data-name="<?=$home_decor->product_name?>" data-price="<?=$home_decor->product_price?>" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</a>
@@ -212,7 +212,7 @@
 												<?php }?>
 											</div>    
 										</div>
-							
+
 									</div> 
 								</div>   
 							</div>  

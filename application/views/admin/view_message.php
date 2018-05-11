@@ -7,8 +7,8 @@
 		<h5>From: <span><?php echo $message_info->viewer_email; ?></span></h5><br>
 		
 		<form action="<?php echo base_url();?>reply-message" method="post">
-			
-			<textarea name="message" cols="150" rows="5" placeholder="Write reply here" ></textarea>
+			<input type="hidden" name="to" value="<?php echo $message_info->viewer_email; ?>">
+ 			<textarea name="message" cols="150" rows="5" placeholder="Write reply here" ></textarea>
 			<button class="btn btn-primary " type="">Reply</button>
 		</form>
 	</div>

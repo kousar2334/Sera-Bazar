@@ -19,7 +19,7 @@ class Admin extends CI_Controller {
 	public function dashboard()
 	{
 		$data=array();
-		        $data['title'] = "Dashboard |Sera Bazar";
+		$data['title'] = "Dashboard |Sera Bazar";
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['admin_main_content']=$this->load->view('admin/admin_main_content',$data,true);
@@ -59,6 +59,7 @@ class Admin extends CI_Controller {
 	//view mageesge
 	public function view_message($viewer_msg_id)
 	{
+		 
 		
 		$data=array();
 		$data['title'] = "Message/".md5($viewer_msg_id);
@@ -66,10 +67,38 @@ class Admin extends CI_Controller {
 		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['message_info']=$this->admin_model->message_view($viewer_msg_id);
 		$this->admin_model->update_message_status($viewer_msg_id);
-       
+
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['admin_main_content']=$this->load->view('admin/view_message',$data,true);
 		$this->load->view('admin/dashboard',$data);
+	}
+	//reply the customer message
+	public function reply_message()
+	{  
+
+		$config=array(
+         'protocol' => 'smtp',
+         'smtp_host' => 'ss1://smtp.googlemail.com',
+         'smtp_port' => 25,
+         'smtp_user' => 'kousar540@gmail.com',
+         'smtp_pass' => 'kousarrahman540',
+         'mail_type' => 'html',
+         'charset' => 'iso-8859-1',
+         'wordwrap' => TRUE
+		);
+		$to=$this->input->post('to',true);
+		$message=$this->input->post('message',true);
+		$this->load->library('email',$config);
+
+		$this->email->from('kousar540@gmail.com', 'Sera Bazar');
+		$this->email->to($to);
+		// $this->email->cc('another@another-example.com');
+		// $this->email->bcc('them@their-example.com');
+
+		$this->email->subject('Sera Bazar');
+		$this->email->message($message);
+
+		$this->email->send();
 	}
    // This function redirect the add_category page .
 	public function add_category()
@@ -221,8 +250,8 @@ class Admin extends CI_Controller {
        //redirect the add inventory page
 	public function add_inventory()
 	{
-     $data=array();
-             $data['title'] = "Add Inventory";
+		$data=array();
+		$data['title'] = "Add Inventory";
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['all_category_info']=$this->admin_model->view_category();
@@ -291,13 +320,24 @@ class Admin extends CI_Controller {
 	public function view_order($order_id)
 	{
 		$data=array();
-		$data['title'] = "Order/".$order_id;
+		$data['title'] = "Order-".$order_id;
 		$data['order_info']=$this->admin_model->order_view($order_id);
 		//$this->admin_model->update_order_status($order_id);
 
 		$data['all_message_info']=$this->admin_model->view_message();
 		$data['all_order_info']=$this->admin_model->view_order_list();
 		$data['admin_main_content']=$this->load->view('admin/view_order',$data,true);
+		$this->load->view('admin/dashboard',$data);
+	}
+	//manage order
+	public function manage_order()
+	{
+		$data=array();
+		$data['title'] = "Manage Order";
+		$data['all_message_info']=$this->admin_model->view_message();
+		$data['all_order_info']=$this->admin_model->view_order_list();
+		$data['all_order_information']=$this->admin_model->manage_order();
+		$data['admin_main_content']=$this->load->view('admin/manage_order',$data,true);
 		$this->load->view('admin/dashboard',$data);
 	}
 }

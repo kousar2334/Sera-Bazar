@@ -31,6 +31,7 @@ $route['manage-product']='Admin/manage_product';
 $route['add-inventory']='admin/add_inventory';
 $route['manage-inventory']='admin/manage_inventory';
 $route['view-product']='admin/view_product';
+$route['product/(.+)']='User_controller/product/$1';
 
 $route['sign-up']='User_controller/user_signup';
 $route['user-registration']='User_controller/user_registration';
@@ -41,6 +42,7 @@ $route['user-log-out']='User_controller/log_out';
 $route['contact-us']='User_controller/contact_us';
 $route['viewer-message']='User_controller/send_viewer_msg';
 $route['view_message/(.+)']='Admin/view_message/$1';
+$route['reply-message']='Admin/reply_message';
 
 //add product to cart
 $route['add-product-cart']='User_controller/add_product_cart';
@@ -54,3 +56,7 @@ $route['check-out']='User_controller/checkout';
 $route['place-order']='User_controller/place_order';
 //show order in admin panel
 $route['view-order/(.+)']='Admin/view_order/$1';
+//manage order
+$route['manage-order']='Admin/manage_order';
+//show subcategory in store categories link
+$route['subcategory-view']='User_controller/subcategory_view';

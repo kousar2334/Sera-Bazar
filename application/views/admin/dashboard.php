@@ -158,6 +158,7 @@ if($name){
 									<ul class="treeview-menu">
 										<li><a href="<?php echo base_url();?>manage-product"><i class="fa fa-angle-right"></i> Manage Products</a></li>
 										<li><a href="<?php echo base_url();?>manage-inventory"><i class="fa fa-angle-right"></i> Manage Inventory</a></li>
+										<li><a href="<?php echo base_url();?>manage-order"><i class="fa fa-angle-right"></i> Manage Order</a></li>
 									</ul>
 								</li>
 								
