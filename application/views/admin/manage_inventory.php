@@ -7,6 +7,7 @@
 			<th scope="col">Sl. No</th>
 			<th scope="col">Product Name</th>
 			<th scope="col">Product Image</th>
+			<th scope="col">Profit</th>
 			<th scope="col">Product Price</th>
 			<th scope="col">Product Quentity</th>
 			<th scope="col">Added Date</th>
@@ -31,6 +32,7 @@
 				</th>
 				<td><?php echo $inventory_info->product_name ;?></td>
 				<td><img src="<?php echo $inventory_info->product_image ;?>" alt="" height="50" width="60" >  </td>
+				<td><?php echo $inventory_info->profit ;?>%</td>
 				<td>&#2547;<?php echo $inventory_info->product_price ;?></td>
 				<td><?php echo $inventory_info->product_quentity;?></td>
 				<td><?php echo $inventory_info->added_date;?></td>

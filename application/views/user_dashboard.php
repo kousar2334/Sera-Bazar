@@ -5,31 +5,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Custom Theme files -->
-<link href="<?php echo base_url()."assets/";?>css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="<?php echo base_url()."assets/";?>css/style.css" rel="stylesheet" type="text/css" media="all" /> 
-<link href="<?php echo base_url()."assets/";?>css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style --> 
-<link href="<?php echo base_url()."assets/";?>css/ken-burns.css" rel="stylesheet" type="text/css" media="all" /> <!-- banner slider --> 
-<link href="<?php echo base_url()."assets/";?>css/animate.min.css" rel="stylesheet" type="text/css" media="all" /> 
-<link href="<?php echo base_url()."assets/";?>css/owl.carousel.css" rel="stylesheet" type="text/css" media="all"> <!-- carousel slider -->  
-<!-- //Custom Theme files -->
-<!-- font-awesome icons -->
-<link href="<?php echo base_url()."assets/";?>css/font-awesome.css" rel="stylesheet"> 
-<!-- //font-awesome icons -->
-<!-- js -->
-<script src="<?php echo base_url()."assets/";?>js/jquery-2.2.3.min.js"></script> 
-<!-- //js --> 
-<!-- web-fonts -->
-<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
-<!-- web-fonts --> 
-<script src="<?php echo base_url()."assets/";?>js/owl.carousel.js"></script>  
-<script>
-	$(document).ready(function() { 
-		$("#owl-demo").owlCarousel({ 
+	function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Custom Theme files -->
+	<link href="<?php echo base_url()."assets/";?>css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<?php echo base_url()."assets/";?>css/style.css" rel="stylesheet" type="text/css" media="all" /> 
+	<link href="<?php echo base_url()."assets/";?>css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style --> 
+	<link href="<?php echo base_url()."assets/";?>css/ken-burns.css" rel="stylesheet" type="text/css" media="all" /> <!-- banner slider --> 
+	<link href="<?php echo base_url()."assets/";?>css/animate.min.css" rel="stylesheet" type="text/css" media="all" /> 
+	<link href="<?php echo base_url()."assets/";?>css/owl.carousel.css" rel="stylesheet" type="text/css" media="all"> <!-- carousel slider -->  
+	<!-- //Custom Theme files -->
+	<!-- font-awesome icons -->
+	<link href="<?php echo base_url()."assets/";?>css/font-awesome.css" rel="stylesheet"> 
+	<!-- //font-awesome icons -->
+	<!-- js -->
+	<script src="<?php echo base_url()."assets/";?>js/jquery-2.2.3.min.js"></script> 
+	<!-- //js --> 
+	<!-- web-fonts -->
+	<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Lovers+Quarrel' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Offside' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+	<!-- web-fonts --> 
+	<script src="<?php echo base_url()."assets/";?>js/owl.carousel.js"></script>  
+	<script>
+		$(document).ready(function() { 
+			$("#owl-demo").owlCarousel({ 
 	  autoPlay: 3000, //Set AutoPlay to 3 seconds 
 	  items :4,
 	  itemsDesktop : [640,5],
@@ -37,11 +37,11 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	  navigation : true
 	  
 	}); 
-	}); 
-</script>
-<script src="<?php echo base_url()."assets/";?>js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
-<script>
-	$(document).ready(function() {
+		}); 
+	</script>
+	<script src="<?php echo base_url()."assets/";?>js/jquery-scrolltofixed-min.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function() {
 
         // Dock the header to the top of the window when scrolled past the banner. This is the default behaviour.
 
@@ -212,13 +212,13 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 
 														<li class="has-children" id="subcategory">
 															<a href="#"></a>  
-															<ul class="is-hidden"> 
+															<!-- <ul class="is-hidden"> 
 																<li class="go-back"><a href="#">All Electronics</a></li> 
 																<li id="item"> <a href="products.html">IPhones</a> </li>
 																<li><a href="products.html">Tablets</a></li>
 																<li><a href="products.html">IPad</a></li>
 																<li><a href="products.html">Feature Phones</a></li> 
-															</ul>
+															</ul> -->
 														</li> 
 
 
@@ -345,28 +345,30 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<p>© 2018  sera bazar . All rights reserved | Developed by <a href="https://www.facebook.com/kousarrahman"> Kousar Rahman</a></p>
 		</div>
 	</div> 
-    
+
 	<script type="text/javascript">
-					$('#category a').hover(function()
-					{						
-						 var category_name=$(this).html();	
-						 					
-						$.ajax({
-							url:"<?php echo base_url();?>subcategory-view",
-							type:"POST",
-							data:{'category_name':category_name},
-							
-							success:function(data){
+		$('#category a').hover(function()
+		{						
+			var category_name=$(this).html();	
 
-								
-								$('#subcategory a').html(data);
-								console.log(data);
-							},
-							
-						});
+			$.ajax({
+				url:"<?php echo base_url();?>subcategory-view",
+				type:"POST",
+				data:{'category_name':category_name},
 
+				success:function(data){
+					$.each(data, function(i,v){
+                    $('#subcategory a').html(v);
+					console.log(v);
 					});
-				</script>
+
+					
+				},
+
+			});
+
+		});
+	</script>
 	<!-- countdown.js -->	
 	<script src="<?php echo base_url()."assets/";?>js/jquery.knob.js"></script>
 	<script src="<?php echo base_url()."assets/";?>js/jquery.throttle.js"></script>

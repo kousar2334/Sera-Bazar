@@ -94,10 +94,10 @@ class User_controller extends CI_Controller {
 		
 		foreach ($store_categories as $key => $value) {
 
-			print_r($value);
+			$subcategory[]= $value->sub_category_name;
 		}
 
-
+ echo json_encode($subcategory);
 		
 		
 	}
@@ -178,10 +178,14 @@ class User_controller extends CI_Controller {
 	{ 
 		
 		$data=array();
+       
 		$data['product_info']=$this->user_model->product_details($product_id);
+		$data['all_men_collection']=$this->user_model->view_men_shopping();
 		$data['all_category_info']=$this->admin_model->view_category();
 		$data['user_home_content']=$this->load->view('single_product',$data,true);
 		$this->load->view('user_dashboard',$data);
+
+
 
 	}
 //place order

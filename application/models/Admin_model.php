@@ -122,6 +122,7 @@ class Admin_model extends CI_Model {
     $this->db->select('*');
     $this->db->from('tbl_products');
     $this->db->where('item_id',$item_id);
+    $this->db->where('publication_status',0);
     $query=$this->db->get();
     $all_product_info=$query->result();
     return $all_product_info;
@@ -132,7 +133,7 @@ class Admin_model extends CI_Model {
     $this->db->select('*');
     $this->db->from('tbl_viewer_massage');
     $this->db->where('status',$status);
-     $this->db->order_by('viewer_name', 'desc');
+    $this->db->order_by('viewer_name', 'desc');
     $qurey=$this->db->get();
     $all_message_info=$qurey->result();
     return $all_message_info;
@@ -141,7 +142,7 @@ class Admin_model extends CI_Model {
   //return the viewer message to the admin panel
   public function message_view($viewer_msg_id)
   {
-    
+
     $this->db->select('*');
     $this->db->from('tbl_viewer_massage');
     $this->db->where('viewer_msg_id',$viewer_msg_id);
@@ -158,59 +159,79 @@ class Admin_model extends CI_Model {
     $this->db->update('tbl_viewer_massage');
 
   }
-
-    //join the product and inventery table and return all inventory info
-  public function manage_inventory()
+  //store the inventory information in the database
+  public function store_inventory($data)
   {
-    $this->db->select('*');
-    $this->db->from('tbl_products');
-    $this->db->join('tbl_inventory','tbl_products.product_id=tbl_inventory.product_id');
-    $query=$this->db->get();
-    $all_inventory_info=$query->result();
-    return $all_inventory_info;
-
+    $this->db->insert('tbl_inventory',$data);
   }
-  //view order list
-  public function view_order_list()
-  {
-    $status=0;
-    $this->db->select('*');
-    $this->db->from('tbl_order');
-    $this->db->where('delivery_status',$status);
-     $this->db->order_by('user_name', 'desc');
-    $qurey=$this->db->get();
-    $all_order_info=$qurey->result();
-    return $all_order_info;
-  }
-  //return the order inforation to the admin panel
-  public function order_view($order_id)
-  {
-    
-    $this->db->select('*');
-    $this->db->from('tbl_order');
-    $this->db->where('order_id',$order_id);
-    $qurey=$this->db->get();
-    $order_info=$qurey->row();
-    return $order_info;
-  }
-  //update the order delivery status
-   public function update_order_status($order_id)
+  //update the publication status of product
+  public function update_product_publication_status($product_id)
   {
     $value=1;
-    $this->db->set('delivery_status', $value); 
-    $this->db->where('order_id',$order_id); 
-    $this->db->update('tbl_order');
-
+    $this->db->set('publication_status', $value); 
+    $this->db->where('product_id',$product_id); 
+    $this->db->update('tbl_products');
   }
-  //show all the information about order
-  public function manage_order()
+  //update the product price
+  public function update_product_price($product_id,$product_price)
   {
-    $this->db->select('*');
-    $this->db->from('tbl_order');
+  $this->db->set('product_price', $product_price); 
+  $this->db->where('product_id',$product_id); 
+  $this->db->update('tbl_products');
+ }
+
+    //join the product and inventery table and return all inventory info
+ public function manage_inventory()
+ {
+  $this->db->select('*');
+  $this->db->from('tbl_products');
+  $this->db->join('tbl_inventory','tbl_products.product_id=tbl_inventory.product_id');
+  $query=$this->db->get();
+  $all_inventory_info=$query->result();
+  return $all_inventory_info;
+
+}
+  //view order list
+public function view_order_list()
+{
+  $status=0;
+  $this->db->select('*');
+  $this->db->from('tbl_order');
+  $this->db->where('delivery_status',$status);
+  $this->db->order_by('user_name', 'desc');
+  $qurey=$this->db->get();
+  $all_order_info=$qurey->result();
+  return $all_order_info;
+}
+  //return the order inforation to the admin panel
+public function order_view($order_id)
+{
+
+  $this->db->select('*');
+  $this->db->from('tbl_order');
+  $this->db->where('order_id',$order_id);
+  $qurey=$this->db->get();
+  $order_info=$qurey->row();
+  return $order_info;
+}
+  //update the order delivery status
+public function update_order_status($order_id)
+{
+  $value=1;
+  $this->db->set('delivery_status', $value); 
+  $this->db->where('order_id',$order_id); 
+  $this->db->update('tbl_order');
+
+}
+  //show all the information about order
+public function manage_order()
+{
+  $this->db->select('*');
+  $this->db->from('tbl_order');
     //$this->db->order_by('user_name', 'desc');
-    $qurey=$this->db->get();
-    $all_order_info=$qurey->result();
-    return $all_order_info;
-  }
+  $qurey=$this->db->get();
+  $all_order_info=$qurey->result();
+  return $all_order_info;
+}
 
 }?>

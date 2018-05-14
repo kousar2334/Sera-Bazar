@@ -29,6 +29,7 @@ $route['save-product']='Admin/store_product';
 $route['manage-product']='Admin/manage_product';
 
 $route['add-inventory']='admin/add_inventory';
+$route['save-inventory']='admin/save_inventory';
 $route['manage-inventory']='admin/manage_inventory';
 $route['view-product']='admin/view_product';
 $route['product/(.+)']='User_controller/product/$1';

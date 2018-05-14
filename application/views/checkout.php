@@ -57,8 +57,8 @@
                     <td><input type="text" name="product_qty[]" value="<?=$items['qty']?>"></td>
                     <td style="text-align:left;"><?php echo $items['name']; ?></td>
                     <td style="text-align:left;"><a class="fa fa-remove cancel" id="<?=$i?>" href="javascript:void(0)" ></a></td>
-                    <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
-                    <td style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
+                    <td style="text-align:right">&#2547;<?php echo $this->cart->format_number($items['price']); ?></td>
+                    <td style="text-align:right">&#2547;<?php echo $this->cart->format_number($items['subtotal']); ?></td>
                 </tr>
 
                 <?php $i++; ?>
@@ -68,21 +68,17 @@
             <tr>
                 <td colspan="3"> </td>
                 <td class="right"><strong>Total</strong></td>
-                <td class="pull-right">$<?php echo $this->cart->format_number($this->cart->total()); ?></td>
+                <td class="pull-right">&#2547;<?php echo $this->cart->format_number($this->cart->total()); ?></td>
             </tr>
             <tr>
                 <td colspan="3"> </td>
                 <td class="right"><strong>Shipping Cost</strong></td>
-                <td class="pull-right">$<?php 
-
-                 
-                 echo $shipping_cost;
-                ?></td>
+                <td class="pull-right">&#2547;<?php echo $shipping_cost; ?></td>
             </tr>
             <tr>
                 <td colspan="3"> </td>
                 <td class="right"><strong>Grand Total</strong></td>
-                <td class="pull-right">$<?php echo $this->cart->format_number($this->cart->total()+$shipping_cost); ?></td>
+                <td class="pull-right">&#2547;<?php echo $this->cart->format_number($this->cart->total()+$shipping_cost); ?></td>
             </tr>
 
         </table>

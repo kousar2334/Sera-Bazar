@@ -259,6 +259,32 @@ class Admin extends CI_Controller {
 		
 		$this->load->view('admin/dashboard',$data);
 	}
+	//store ihe inventory information in database
+	public function save_inventory()
+	{  
+        
+		$data=array();
+		$data['category_id']=$this->input->post('category_id',true);
+		$data['subcategory_id']=$this->input->post('subcategory_id',true);
+		$data['item_id']=$this->input->post('item_id',true);
+		$data['product_id']=$this->input->post('product_id',true);
+		$data['product_quentity']=$this->input->post('product_quentity',true);
+		$data['product_b_price']=$this->input->post('product_b_price',true);
+		$data['profit']=$this->input->post('profit',true);
+		//calculate the profit
+		$profit_percent=$data['profit'];
+		$profit=($data['product_b_price']*$profit_percent)/100;
+		$selling_price=$data['product_b_price']+$profit;
+		$data['product_s_price']=$selling_price;
+		$data['added_date']=date('y-m-d');
+		$this->admin_model->store_inventory($data);
+		$product_id=$data['product_id'];
+		$product_price=$selling_price;
+		$this->admin_model->update_product_price($product_id,$product_price);
+		$this->admin_model->update_product_publication_status($product_id);
+		$data['message']=$this->session->set_userdata($data);
+		redirect('add-inventory',$data);
+	}
 	//view the inventory information and show manage inventory page
 	public function manage_inventory()
 	{
