@@ -43,13 +43,13 @@
 					?></td>
 					<td><?php echo $order_info->grand_total ;?></td>
 
-					<td class="btn btn-primary">
+					<td>
 						<?php
 
-                    if($order_info->delivery_status=='0'){
-                    	echo"Pending";
-                    }else{
-                    	echo"Delivered";
+                    if($order_info->delivery_status=='0'){ ?>
+                    	<a class="btn btn-warning" href="<?php echo base_url();?>deliver-order/<?php echo $order_info->order_id;?>">Pending</a>	
+                    <?php }else{
+                    	?><button class="btn btn-success">Deliverd</button> <?php
                     }
 
 

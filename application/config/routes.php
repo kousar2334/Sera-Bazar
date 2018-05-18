@@ -57,7 +57,10 @@ $route['check-out']='User_controller/checkout';
 $route['place-order']='User_controller/place_order';
 //show order in admin panel
 $route['view-order/(.+)']='Admin/view_order/$1';
+$route['print-order/(.+)']='Admin/print_order/$1';
 //manage order
 $route['manage-order']='Admin/manage_order';
+
+$route['deliver-order/(.+)']='Admin/deliver_order/$1';
 //show subcategory in store categories link
 $route['subcategory-view']='User_controller/subcategory_view';

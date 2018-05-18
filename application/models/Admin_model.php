@@ -197,7 +197,7 @@ public function view_order_list()
   $status=0;
   $this->db->select('*');
   $this->db->from('tbl_order');
-  $this->db->where('delivery_status',$status);
+  $this->db->where('notification_status',$status);
   $this->db->order_by('user_name', 'desc');
   $qurey=$this->db->get();
   $all_order_info=$qurey->result();
@@ -214,7 +214,16 @@ public function order_view($order_id)
   $order_info=$qurey->row();
   return $order_info;
 }
-  //update the order delivery status
+//update the notification status of the order
+public function update_nitification_status($order_id)
+{
+  $value=1;
+  $this->db->set('notification_status', $value); 
+  $this->db->where('order_id',$order_id); 
+  $this->db->update('tbl_order');
+  
+}
+//update the order delivery status
 public function update_order_status($order_id)
 {
   $value=1;

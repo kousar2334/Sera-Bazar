@@ -35,7 +35,7 @@
 					?></td>
 
 					<td>
-						<a class="btn btn-primary" href="">Deliver</a>
+						<a class="btn btn-primary" href="<?php echo base_url();?>deliver-order/<?php echo $order_info->order_id;?>">Delever Order</a>	
 					</td>
 				</tr>
 

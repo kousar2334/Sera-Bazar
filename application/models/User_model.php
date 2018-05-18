@@ -89,11 +89,34 @@ class User_model extends CI_Model {
 	public function product_details($product_id)
 	{
 		$this->db->select('*');
-		$this->db->from('tbl_products');
-		$this->db->where('product_id',$product_id);
+		$this->db->from('tbl_products');		
+		$this->db->join('tbl_inventory','tbl_products.product_id=tbl_inventory.product_id');
+		$this->db->where('tbl_products.product_id',$product_id);
 		$qurey=$this->db->get();
 		$product_info=$qurey->result();
 		return $product_info;
+	}
+	//view inventory information 
+	public function view_inventory_information($pro_id)
+	{
+		$this->db->select('*');
+		$this->db->from('tbl_inventory');
+		$this->db->where_in('product_id',$pro_id);
+		$qurey=$this->db->get();
+		$inventory_info=$qurey->result();
+		return $inventory_info;
+
+	}
+	//update product quentity after customer order
+	public function update_qty_inventory($product_quentity,$pro_id)
+	{
+		for ($i=0; $i <count($product_quentity) ; $i++) { 
+			$this->db->set('product_quentity',$product_quentity[$i]); 
+			$this->db->where('product_id',$pro_id[$i]); 
+			$this->db->update('tbl_inventory');
+		}
+
+
 	}
 
     //store the order information

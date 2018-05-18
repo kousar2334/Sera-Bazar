@@ -211,7 +211,7 @@
 														<li class="see-all"><a href="products.html">All Electronics</a></li>
 
 														<li class="has-children" id="subcategory">
-															<a href="#"></a>  
+															<a href="#" id="sub_link"></a>  
 															<!-- <ul class="is-hidden"> 
 																<li class="go-back"><a href="#">All Electronics</a></li> 
 																<li id="item"> <a href="products.html">IPhones</a> </li>
@@ -357,11 +357,10 @@
 				data:{'category_name':category_name},
 
 				success:function(data){
-					$.each(data, function(i,v){
-                    $('#subcategory a').html(v);
-					console.log(v);
-					});
-
+					
+                    $('#subcategory #sub_link').html(data);
+					console.log(data);
+					
 					
 				},
 

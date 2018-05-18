@@ -27,6 +27,16 @@
 						<div class="single-price">
 							<ul>
 								<li>&#2547;<?php echo $product->product_price;?></li>  
+								<li class="rating"><p style="color:Tomato;">
+									
+									<?php if($product->product_quentity>0){
+                                     echo "Available";
+									}else{
+										echo"Out of stock";
+									}
+									?>
+								</p></li>
+								
 								
 							</ul>	
 						</div> 

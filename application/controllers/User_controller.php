@@ -95,6 +95,8 @@ class User_controller extends CI_Controller {
 		foreach ($store_categories as $key => $value) {
 
 			$subcategory[]= $value->sub_category_name;
+			//$sub.='<a href="#">'. $value->sub_category_name.'</a>';
+
 		}
 
  echo json_encode($subcategory);
@@ -193,7 +195,7 @@ class User_controller extends CI_Controller {
 	{
 
 
-
+        
 		$data=array();
 		$pro_name=$this->input->post('product_name',true);
 		$pro_id=$this->input->post('product_id',true);
@@ -215,6 +217,26 @@ class User_controller extends CI_Controller {
 		$order_msg['order_message']="Order Place Successfully";
 		$this->session->set_userdata($order_msg);
 		redirect(base_url(),$order_msg);
+		
+		// foreach ($pro_qty as $product_qty) {
+			
+		
+		// }
+		// foreach ($pro_id as $product_id) {
+			
+		// 	// echo $product_id;
+		// }
+		// $inventory_info=$this->user_model->view_inventory_information($pro_id);
+		// foreach ($inventory_info as $key => $value) {
+			
+          
+		// 	$product_quentity[]=$value->product_quentity-$product_qty;
+  //           //echo $product_quentity;
+            
+		// }
+		
+  //       $this->user_model->update_qty_inventory($product_quentity,$pro_id);
+		
 
 
 	}
